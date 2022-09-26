@@ -21,6 +21,8 @@ LocationIQ web API
 
 ## Change Log
 1. README updated 15:21 9/26
+2. Web request/response cycle diagram 15:29 9/26
 
 ## Credit and Collaborations
 Partner: Jose Gonzalez
+WRRC Diagram: https://josegonzalez799970.invisionapp.com/freehand/City-Explorer-CP2VdUDMN
