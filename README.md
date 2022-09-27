@@ -1,7 +1,7 @@
 # City Explorer
 
 **Author**: Ben Lieberman
-**Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
+**Version**: 1.0.0
 
 ## Overview
 This is a simple React app that makes requests to the LocationIQ web API and displays the response to the user.
@@ -22,7 +22,11 @@ LocationIQ web API
 ## Change Log
 1. README updated 15:21 9/26
 2. Web request/response cycle diagram 15:29 9/26
+3. Lab 06 completed 20:00 9/26
+4. Lab 07 frontend tasks complete 16:30 9/27
 
 ## Credit and Collaborations
 Partner: Jose Gonzalez
-WRRC Diagram: https://josegonzalez799970.invisionapp.com/freehand/City-Explorer-CP2VdUDMN
+WRRC Diagram Lab 06: https://josegonzalez799970.invisionapp.com/freehand/City-Explorer-CP2VdUDMN
+Partner: Mathieu Roberts
+WRRC Diagram Lab 07: [WRRC Diagram](./city-explorer-wrrc-diagram.png)
