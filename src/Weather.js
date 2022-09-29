@@ -13,6 +13,7 @@ class Weather extends React.Component {
     }
 }
 
+
 class WeatherDay extends React.Component {
     render() {
         return (
@@ -27,3 +28,4 @@ class WeatherDay extends React.Component {
 }
 
 export default Weather;
+
