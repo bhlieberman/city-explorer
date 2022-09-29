@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Card, Collapse } from 'react-bootstrap'
+import { Container, Card } from 'react-bootstrap'
 
 class Weather extends React.Component {
     render() {
