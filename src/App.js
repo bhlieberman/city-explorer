@@ -39,7 +39,7 @@ class App extends React.Component {
   }
   getWeather = async () => {
     const { lat, lon } = this.state.location;
-    const API = `localhost:3000/weather?lat=${lat}&lon=${lon}&searchQuery=${this.state.searchQuery}`;
+    const API = `http://localhost:3001/weather?lat=${lat}&lon=${lon}&searchQuery=${this.state.searchQuery}`;
     try {
       const weather = await axios.get(API);
     this.setState({ weather: weather.data });
@@ -48,7 +48,7 @@ class App extends React.Component {
   }
   }
   getMovies = async () => {
-    const API = `localhost:3000/movies?searchQuery=${this.state.location.display_name.split(',')[0]}`;
+    const API = `http://localhost:3001/movies?searchQuery=${this.state.location.display_name.split(',')[0]}`;
     console.log(API);
     try {
       const movies = await axios.get(API);
