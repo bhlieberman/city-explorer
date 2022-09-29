@@ -5,8 +5,8 @@ class Weather extends React.Component {
     render() {
         return (
             <Container>
-                {this.props.forecastData.map((day) => {
-                    return (<Card>
+                {this.props.forecastData.map((day, index) => {
+                    return (<Card key={index}>
                         <Card.Body className="border-1">
                             <Card.Text>{day.date}</Card.Text>
                             <Card.Text>{day.description}</Card.Text>
