@@ -8,12 +8,12 @@ class Movies extends React.Component {
                 {this.props.movies.map((movie, index) => {
                     return (<Card key={index}>
                         <Card.Body className="border-1">
-                            <Card.Text>{movie.title}</Card.Text>
-                            <Card.Text>{movie.overview}</Card.Text>
-                            <Card.Text>{movie.popularity}</Card.Text>
-                            <Card.Text>{movie.release_date}</Card.Text>
-                            <Card.Text>{movie.vote_average}</Card.Text>
-                            <Card.Text>{movie.vote_count}</Card.Text>
+                            <Card.Text>Title: {movie.title}</Card.Text>
+                            <Card.Text>Summary: {movie.overview}</Card.Text>
+                            <Card.Text>Popularity: {movie.popularity}</Card.Text>
+                            <Card.Text>Release date: {movie.release_date}</Card.Text>
+                            <Card.Text>Average vote: {movie.vote_average}</Card.Text>
+                            <Card.Text># of votes: {movie.vote_count}</Card.Text>
                         </Card.Body>
                     </Card>)
                 })}
@@ -23,22 +23,3 @@ class Movies extends React.Component {
 }
 
 export default Movies;
-
-class Movie {
-    constructor(
-        overview,
-        popularity,
-        poster_path,
-        release_date,
-        title,
-        vote_average,
-        vote_count) {
-        this.overview = overview
-        this.popularity = popularity
-        this.poster_path = poster_path
-        this.release_date = release_date
-        this.title = title
-        this.vote_average = vote_average
-        this.vote_count = vote_count
-    }
-}
