@@ -22,6 +22,7 @@ class App extends React.Component {
     }
   }
   key = process.env.REACT_APP_CITY_KEY;
+  heroku = process.env.HEROKU;
   getLocation = async () => {
     const API = `https://us1.locationiq.com/v1/search.php?key=${this.key}&q=${this.state.searchQuery}&format=json`;
     try {
@@ -38,7 +39,7 @@ class App extends React.Component {
   }
   getWeather = async () => {
     const { lat, lon } = this.state.location;
-    const API = `http://localhost:3001/weather?lat=${lat}&lon=${lon}&searchQuery=${this.state.searchQuery}`;
+    const API = `localhost:3000/weather?lat=${lat}&lon=${lon}&searchQuery=${this.state.searchQuery}`;
     try {
       const weather = await axios.get(API);
     this.setState({ weather: weather.data });
@@ -47,7 +48,7 @@ class App extends React.Component {
   }
   }
   getMovies = async () => {
-    const API = `http://localhost:3001/movies?searchQuery=${this.state.location.display_name.split(',')[0]}`;
+    const API = `localhost:3000/movies?searchQuery=${this.state.location.display_name.split(',')[0]}`;
     console.log(API);
     try {
       const movies = await axios.get(API);
