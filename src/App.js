@@ -6,6 +6,7 @@ import { Form, Button, Card, Collapse, Container } from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import Weather from './Weather.js';
+import Movies from './Movies';
 
 class App extends React.Component {
   constructor(props) {
@@ -16,23 +17,46 @@ class App extends React.Component {
       error: '',
       map: '',
       open: false,
-      weather: []
+      weather: [],
+      movies: []
     }
   }
   key = process.env.REACT_APP_CITY_KEY;
+  heroku = process.env.HEROKU;
   getLocation = async () => {
     const API = `https://us1.locationiq.com/v1/search.php?key=${this.key}&q=${this.state.searchQuery}&format=json`;
     try {
       const res = await axios.get(API);
+      console.log(res.data[0].display_name)
       const { lat, lon } = res.data[0];
-      const weather = await axios.get(`http://localhost:3001/weather?lat=${lat}&lon=${lon}&searchQuery=${this.state.searchQuery}`);
       this.setState({
         location: res.data[0],
         map: `https://maps.locationiq.com/v3/staticmap?key=${this.key}&center=${lat},${lon}&zoom=17`,
-        weather: weather.data
       });
     } catch (error) {
       this.setState({ error: `${error.code}: ${error.message}` });
+    }
+  }
+  getWeather = async () => {
+    const { lat, lon } = this.state.location;
+    const API = `localhost:3000/weather?lat=${lat}&lon=${lon}&searchQuery=${this.state.searchQuery}`;
+    try {
+      const weather = await axios.get(API);
+    this.setState({ weather: weather.data });
+  } catch (error) {
+    this.setState({ error: `${error.code}: ${error.message}` })
+  }
+  }
+  getMovies = async () => {
+    const API = `localhost:3000/movies?searchQuery=${this.state.location.display_name.split(',')[0]}`;
+    console.log(API);
+    try {
+      const movies = await axios.get(API);
+      // console.log(movies.data);
+      this.setState({ movies: movies.data })
+    } catch (error) {
+      console.log(error);
+      this.setState({ error: `${error.code}: ${error.message}` })
     }
   }
   setOpen = () => {
@@ -58,7 +82,10 @@ class App extends React.Component {
               <Card.Img src={this.state.map}
                 alt={this.state.location.display_name && `map of ${this.state.location.display_name}`}
                 className="img-thumbnail img-fluid float-left"></Card.Img>
-              <Weather forecastData={this.state.weather} />
+                <Button variant="primary" onClick={() => this.getWeather()}>Get Weather</Button>
+                <Weather forecastData={this.state.weather} />
+                <Button variant="primary" onClick={() => this.getMovies()}>Get Movies</Button>
+                <Movies movies={this.state.movies} />
             </Card.Body>
           </Card>
         </Collapse>

@@ -15,15 +15,16 @@ To run this project locally, do the following:
 ## Architecture
 Frontend:
 React
-<-> Axios <->
+API data <-> Axios <-> API data
 Backend: 
-LocationIQ web API
+Heroku container running ExpressJS server
 
 ## Change Log
 1. README updated 15:21 9/26
 2. Web request/response cycle diagram 15:29 9/26
 3. Lab 06 completed 20:00 9/26
 4. Lab 07 frontend tasks complete 16:30 9/27
+5. Lab 08 frontend complete 23:00 9/27
 
 ## Credit and Collaborations
 Partner: Jose Gonzalez
