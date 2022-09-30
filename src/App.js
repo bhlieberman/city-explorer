@@ -39,20 +39,19 @@ class App extends React.Component {
   }
   getWeather = async () => {
     const { lat, lon } = this.state.location;
-    const API = `http://localhost:3001/weather?lat=${lat}&lon=${lon}&searchQuery=${this.state.searchQuery}`;
+    const API = `${heroku}/weather?lat=${lat}&lon=${lon}&searchQuery=${this.state.searchQuery}`;
     try {
       const weather = await axios.get(API);
-    this.setState({ weather: weather.data });
-  } catch (error) {
-    this.setState({ error: `${error.code}: ${error.message}` })
-  }
+      this.setState({ weather: weather.data });
+    } catch (error) {
+      this.setState({ error: `${error.code}: ${error.message}` })
+    }
   }
   getMovies = async () => {
-    const API = `http://localhost:3001/movies?searchQuery=${this.state.location.display_name.split(',')[0]}`;
+    const API = `${heroku}/movies?searchQuery=${this.state.location.display_name.split(',')[0]}`;
     console.log(API);
     try {
       const movies = await axios.get(API);
-      // console.log(movies.data);
       this.setState({ movies: movies.data })
     } catch (error) {
       console.log(error);
@@ -82,10 +81,10 @@ class App extends React.Component {
               <Card.Img src={this.state.map}
                 alt={this.state.location.display_name && `map of ${this.state.location.display_name}`}
                 className="img-thumbnail img-fluid float-left"></Card.Img>
-                <Button variant="primary" onClick={() => this.getWeather()}>Get Weather</Button>
-                <Weather forecastData={this.state.weather} />
-                <Button variant="primary" onClick={() => this.getMovies()}>Get Movies</Button>
-                <Movies movies={this.state.movies} />
+              <Button variant="primary" onClick={() => this.getWeather()}>Get Weather</Button>
+              <Weather forecastData={this.state.weather} />
+              <Button variant="primary" onClick={() => this.getMovies()}>Get Movies</Button>
+              <Movies movies={this.state.movies} />
             </Card.Body>
           </Card>
         </Collapse>

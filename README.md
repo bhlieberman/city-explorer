@@ -31,3 +31,5 @@ Partner: Jose Gonzalez
 WRRC Diagram Lab 06: https://josegonzalez799970.invisionapp.com/freehand/City-Explorer-CP2VdUDMN
 Partner: Mathieu Roberts
 WRRC Diagram Lab 07: [WRRC Diagram](./city-explorer-wrrc-diagram.png)
+WRRC Diagram Lab 08: [WRRC Diagram](https://github.com/bhlieberman/city-explorer-api/wrrc-lab-08.png)
+WRRC Diagram Lab 10: [WRRC Diagram](https://github.com/bhlieberman/city-explorer-api/wrrc-lab-10.png)
