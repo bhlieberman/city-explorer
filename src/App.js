@@ -39,7 +39,7 @@ class App extends React.Component {
   }
   getWeather = async () => {
     const { lat, lon } = this.state.location;
-    const API = `${this.heroku}/weather?lat=${lat}&lon=${lon}&searchQuery=${this.state.searchQuery}`;
+    const API = `https://ben-l-city-explorer-backend.herokuapp.com/weather?lat=${lat}&lon=${lon}&searchQuery=${this.state.searchQuery}`;
     try {
       const weather = await axios.get(API);
       this.setState({ weather: weather.data });
@@ -48,7 +48,7 @@ class App extends React.Component {
     }
   }
   getMovies = async () => {
-    const API = `${this.heroku}/movies?searchQuery=${this.state.location.display_name.split(',')[0]}`;
+    const API = `https://ben-l-city-explorer-backend.herokuapp.com/movies?searchQuery=${this.state.location.display_name.split(',')[0]}`;
     console.log(API);
     try {
       const movies = await axios.get(API);
