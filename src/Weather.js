@@ -1,5 +1,7 @@
 import React from 'react'
-import { Container, Card } from 'react-bootstrap'
+import Container from 'react-bootstrap/Container'
+
+import WeatherDay from './WeatherDay'
 
 class Weather extends React.Component {
     render() {
@@ -10,20 +12,6 @@ class Weather extends React.Component {
                 })}
             </Container>
         )
-    }
-}
-
-
-class WeatherDay extends React.Component {
-    render() {
-        return (
-            <Card>
-                <Card.Body className="border-1">
-                    <Card.Text>{this.props.day.date}</Card.Text>
-                    <Card.Text>{this.props.day.description}</Card.Text>
-                </Card.Body>
-            </Card>
-        );
     }
 }
 
